@@ -17,7 +17,7 @@ from cldm.hack import disable_verbosity, enable_sliced_attention
 cv2.setNumThreads(0)
 cv2.ocl.setUseOpenCL(False)
 
-save_memory = False
+save_memory = True
 disable_verbosity()
 if save_memory:
     enable_sliced_attention()
@@ -27,7 +27,7 @@ config = OmegaConf.load('./configs/demo.yaml')
 model_ckpt =  config.pretrained_model
 model_config = config.config_file
 
-model = create_model(model_config ).cuda()
+model = create_model(model_config).cuda()
 model.load_state_dict(load_state_dict(model_ckpt, location='cuda'))
 model = model.cuda()
 ddim_sampler = DDIMSampler(model)

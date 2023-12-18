@@ -276,4 +276,4 @@ with gr.Blocks() as demo:
                            outputs=[baseline_gallery]
                         )
 
-demo.launch(server_name="127.0.0.1",inbrowser=True)
+demo.launch(server_name="127.0.0.1",inbrowser=True,share=True)
